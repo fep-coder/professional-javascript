@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Understanding JavaScript</title>
+	<link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+	<script src="../helpers.js"></script>
+	<script>
+
+		// const animal; 
+		const animal = "elephant";
+		assert(animal === "elephant", "animal is elephant");
+		// animal = "ape";
+
+		const arr = [1, 2, 3];
+		arr[0] = 100;
+		assert(arr[0] === 100, "the first item is now 100");
+
+		const obj = {
+			color: "red"
+		}
+		obj.color = "green";
+		assert(obj.color === "green", "obj.color is now green");
+
+	</script>
+
+</body>
+
+</html>

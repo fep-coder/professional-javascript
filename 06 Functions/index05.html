@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        function fruit() {
+            return "grapes";
+        }
+
+        function food() {
+            function foodType() {
+                return "meat";
+            }
+            return foodType();
+        }
+
+        assert(fruit() == "grapes", "fruit is grapes");
+        assert(food() == "meat", "food is meat");
+
+        func1();
+        const func1 = function () {
+            return "Hello from func1";
+        }
+
+        func2();
+        function func2() {
+            return "Hello from func2"
+        }
+
+    </script>
+
+</body>
+
+</html>

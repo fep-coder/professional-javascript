@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        function createNegativeArrayProxy(array) {
+            if (!Array.isArray(array)) {
+                throw new TypeError("Expected an array");
+            }
+
+            return new Proxy(array, {
+                get: (target, index) => {
+                    index = +index;
+                    return target[index < 0 ? target.length + index : index];
+                },
+                set: (target, index, val) => {
+                    index = +index;
+                    return (target[index < 0 ? target.length + index : index] = val);
+                },
+            });
+        }
+
+        function measure(items) {
+            const t1 = performance.now();
+
+            for (let i = 0; i < 500000; i++) {
+                items[0] === "apples";
+                items[1] === "oranges";
+                items[2] === "grapes";
+            }
+            
+            const t2 = performance.now();
+
+            return t2 - t1;
+        }
+
+        const fruits = ["apples", "oranges", "grapes"];
+        const proxiedFruits = createNegativeArrayProxy(fruits);
+
+        console.log(
+            "Proxies are around",
+            Math.round(measure(proxiedFruits) / measure(fruits)),
+            "times slower"
+        );
+
+    </script>
+
+</body>
+
+</html>

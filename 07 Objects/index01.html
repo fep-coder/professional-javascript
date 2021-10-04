@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        const cat = { meow: true };
+        const dog = { bark: true };
+        const robot = { dance: true };
+
+        assert("meow" in cat, "cat can meow");
+        assert(!("bark" in cat), "cat cannot bark");
+        assert(!("dance" in cat), "cat cannot dance");
+        separate();
+
+        Object.setPrototypeOf(cat, dog);
+
+        assert("bark" in cat, "cat can now bark");
+        assert(!("dance" in dog), "dog cannot dance");
+
+        Object.setPrototypeOf(dog, robot);
+        assert("dance" in dog, "dog can now dance");
+        assert("dance" in cat, "cat can also dance");
+
+    </script>
+
+</body>
+
+</html>

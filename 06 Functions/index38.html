@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        report("At code start");
+
+        const fruitDelayedPromise = new Promise((resolve, reject) => {
+            report("fruitDelayedPromise executor");
+            setTimeout(() => {
+                report("Resolving fruitDelayedPromise (after 500ms)");
+                resolve("apples");
+            }, 500);
+        });
+
+        fruitDelayedPromise.then(fruit => {
+            assert(fruit === "apples", "fruitDelayedPromise resolve handled with apples (after 500ms)");
+        });
+
+        const fruitImmediatePromise = new Promise((resolve, reject) => {
+            report("fruitImmediatePromise executor. Immediate resolve.");
+            resolve("bananas");
+        });
+
+        fruitImmediatePromise.then(fruit => {
+            assert(fruit === "bananas", "fruitImmediatePromise resolve handled with bananas"); 
+        });
+
+        report("At code end");
+
+    </script>
+
+</body>
+
+</html>

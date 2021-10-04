@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+		const phonebook = new Map(); 
+
+        phonebook.set("John", "111 222");
+        phonebook.set("Jamie", "222 333");
+        phonebook.set("Alice", "333 444");
+
+        for (let item of phonebook) {
+            assert(item[0] !== null, "Key: " + item[0]);
+            assert(item[1] !== null, "Value: " + item[1]);
+        }
+        separate();
+
+        for (let key of phonebook.keys()) {
+            assert(key !== null, "Key: " + key);
+            assert(phonebook.get(key) != null, "Value: " + phonebook.get(key));
+        }
+        separate();
+
+        for (let value of phonebook.values()) {
+            assert(value !== null, "Value: " + value);
+        }
+
+    </script>
+
+</body>
+
+</html>

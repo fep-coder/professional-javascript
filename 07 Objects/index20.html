@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        function makeLoggable(target) {
+            return new Proxy(target, {
+                get: (target, property) => {
+                    report("Reading " + property);
+                    return target[property];
+                },
+                set: (target, property, value) => {
+                    report("Writing value " + value + " to " + property);
+                    target[property] = value;
+                },
+            });
+        }
+
+        let fruit = { name: "apples" };
+        fruit = makeLoggable(fruit);
+
+        assert(fruit.name == "apples", "fruit is apples");
+        fruit.color = "green";
+
+    </script>
+
+</body>
+
+</html>

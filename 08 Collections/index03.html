@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        const animals = ["cats", "dogs", "birds", "fish"];
+
+        delete animals[1];
+
+        assert(animals.length === 4, "Length still reports that there are 4 items");
+
+        assert(animals[0] === "cats", "First item is cats");
+        assert(animals[1] === undefined, "We've simply created a hole");
+        assert(animals[2] === "birds", "birds is still the third item");
+        assert(animals[3] === "fish", "And fish is the last item");
+
+    </script>
+
+</body>
+
+</html>

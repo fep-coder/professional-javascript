@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        const text = "Fruit is great!";
+
+        report("Before defining functions");
+
+        function useless(callback) {
+            report("In useless function");
+            return callback();
+        }
+
+        function getText() {
+            report("In getText (callback) function");
+            return text;
+        }
+
+        report("Before making all the calls");
+
+        assert(useless(getText) === text, "The useless function works! " + text);
+
+        assert(
+            useless(function () { return text; }) === text,
+            "The useless function works! " + text);
+
+        report("After the calls have been made");
+
+    </script>
+
+</body>
+
+</html>

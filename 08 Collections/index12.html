@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        const numbers = [1, 2, 3, 4];
+
+        let sum = 0;
+        numbers.forEach((number) => {
+            sum += number;
+        });
+        assert(sum === 10, "The sum of first four numbers is 10");
+
+        const sum2 = numbers.reduce((aggregated, number) => aggregated + number, 0);
+        assert(sum2 === 10, "The sum of first four numbers is 10");
+
+    </script>
+
+</body>
+
+</html>

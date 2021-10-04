@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <div id="subTree">
+        <form>
+            <input type="text" />
+        </form>
+        <p>Paragraph</p>
+        <span>Span</span>
+    </div>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        function traverseDOM(element, callback) {
+            callback(element);
+
+            element = element.firstElementChild;
+            while (element) {
+                traverseDOM(element, callback);
+                element = element.nextElementSibling;
+            }
+        }
+
+        const subTree = document.getElementById("subTree");
+        traverseDOM(subTree, function (element) {
+            assert(element !== null, element.nodeName);
+        });
+
+    </script>
+
+</body>
+
+</html>

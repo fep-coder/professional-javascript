@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        const veggies = ["carrots", "cabbage", "potatoes", "onions"];
+
+        let removedItems = veggies.splice(1, 1);
+
+        assert(removedItems.length === 1, "One item was removed");
+        assert(removedItems[0] === "cabbage", "cabbage was removed");
+
+        assert(veggies.length === 3, "There are now three items in the array");
+        assert(veggies[0] === "carrots", "The first item is still carrots");
+        assert(veggies[1] === "potatoes", "potatoes is now in the second place");
+        assert(veggies[2] === "onions", "And onions is in the third place");
+
+        removedItems = veggies.splice(1, 2, "broccoli", "lettuce", "cucumbers");
+
+        assert(removedItems.length === 2, "Now, we've removed two items");
+        assert(removedItems[0] === "potatoes", "potatoes was removed");
+        assert(removedItems[1] === "onions", "onions was removed");
+
+        assert(veggies.length === 4, "We've inserted some new items");
+        assert(veggies[0] === "carrots", "carrots is still here");
+        assert(veggies[1] === "broccoli", "broccoli  also");
+        assert(veggies[2] === "lettuce", "lettuce also");
+        assert(veggies[3] === "cucumbers", "and cucumbers");
+
+    </script>
+
+</body>
+
+</html>

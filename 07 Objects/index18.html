@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        const person = {
+            name: "Bob",
+            surname: "Smith",
+
+            get fullName() {
+                return this.name + " " + this.surname;
+            },
+
+            set fullName(value) {
+                const segments = value.split(" ");
+                this.name = segments[0];
+                this.surname = segments[1];
+            }
+        };
+
+        assert(person.fullName === "Bob Smith", "The full name is Bob Smith");
+
+        person.fullName = "John Jones";
+        assert(person.name === "John", "name is John");
+        assert(person.surname === "Jones", "Of surname Jones");
+        assert(person.fullName === "John Jones", "The full name is now John Jones");
+
+
+    </script>
+
+</body>
+
+</html>

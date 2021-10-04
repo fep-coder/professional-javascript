@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Modularization</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script type="module">
+
+        // import ImportedPersonClass from "./PersonClass.js";
+        // import { comparePersons } from "./PersonClass.js";
+        import ImportedPersonClass, { comparePersons } from "./PersonClass.js";
+
+        const person1 = new ImportedPersonClass("John");
+        const person2 = new ImportedPersonClass("Mary");
+
+        assert(
+            person1 !== undefined && 
+            person2 !== undefined,
+            "We can create a couple of persons"
+        );
+
+        assert(!comparePersons(person1, person2), "We can compare persons");
+
+    </script>
+
+</body>
+
+</html>

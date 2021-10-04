@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        class Animal {
+            constructor(kind) {
+                this.kind = kind;
+            }
+
+            run() {
+                return true;
+            }
+        }
+
+        const animal = new Animal("dog");
+
+        assert(animal instanceof Animal, "Our animal is an Animal");
+        assert(animal.kind === "dog", "it's a dog");
+        assert(animal.run(), "and he can run");
+
+    </script>
+
+</body>
+
+</html>

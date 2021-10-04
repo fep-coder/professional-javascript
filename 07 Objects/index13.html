@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        function Game() {
+            let level;
+
+            this.getLevel = () => level;
+
+            this.getLevel = () => {
+              report("Getting level value");
+              return level;
+            };
+
+            this.setLevel = (value) => {
+                report(`Modifying level property from: ${level} to: ${value}`); 
+                level = value;
+            };
+        }
+        
+        const game = new Game();
+        game.setLevel(100);
+        assert(game.getLevel() === 100, "Our game is at level 100!");
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        function* IdGenerator() {
+            let id = 0;
+            while (true) {
+                yield ++id;
+            }
+        }
+
+        const idIterator = IdGenerator();
+
+        const fruit1 = { id: idIterator.next().value };
+        const fruit2 = { id: idIterator.next().value };
+        const fruit3 = { id: idIterator.next().value };
+
+        assert(fruit1.id === 1, "First fruit has id 1");
+        assert(fruit2.id === 2, "Second fruit has id 2");
+        assert(fruit3.id === 3, "Third fruit has id 3");
+
+    </script>
+
+</body>
+
+</html>

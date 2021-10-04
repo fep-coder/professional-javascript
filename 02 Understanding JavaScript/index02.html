@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Understanding JavaScript</title>
+	<link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+	<script src="../helpers.js"></script>
+	<script>
+
+		let pet = "cat";
+		assert(window.pet !== pet, "there is no window.pet")
+
+		function getPet() {
+			let pet = "dog";
+			return pet;
+		}
+
+		assert(getPet() === "dog", "pet is dog")
+		assert(pet === "cat", "pet is cat")
+
+		let color = "red";
+		{
+			let color = "green";
+			assert(color === "green", "color is green");
+		}
+		assert(color === "red", "color is red");
+
+		var size = "xl";
+		{
+			var size = "xxxl";
+			assert(size === "xxxl", "size is xxxl");
+		}
+		assert(size === "xxxl", "size is still xxxl");
+
+		function dogName() {
+			name = "Loki";
+			return name;
+			let name;
+		}
+
+		// dogName(); 
+
+		function getColor() {
+			console.log(color); 
+			let color = "red";
+		}
+
+		// getColor(); 
+
+		let one = 1;
+		one = 2;
+		let one = 2;
+		assert(one === 2, "reassigning works");
+
+	</script>
+
+</body>
+
+</html>

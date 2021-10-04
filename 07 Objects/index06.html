@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        function Animal() { }
+        Animal.prototype.bite = function () { };
+
+        function Dog() { }
+
+        Dog.prototype = new Animal();
+
+        const dog = new Dog();
+        assert(dog instanceof Dog, "dog receives functionality from the Dog prototype");
+        assert(dog instanceof Animal, "... and the Animal prototype");
+        assert(dog instanceof Object, "... and the Object prototype");
+        assert(typeof dog.bite === "function", "... and can bite!");
+
+        // assert(
+        //     dog.constructor === Dog,
+        //     "The dog object was created by the Dog constructor"
+        // );
+
+    </script>
+
+</body>
+
+</html>

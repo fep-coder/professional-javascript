@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        let store = {
+            nextId: 1,
+            cache: {},
+            add: function (fn) {
+                if (!fn.id) {
+                    fn.id = this.nextId++;
+                    this.cache[fn.id] = fn;
+                    return true;
+                }
+            },
+        };
+
+        function someFunction() { }
+        assert(store.add(someFunction), "Function was safely added.");
+        assert(!store.add(someFunction), "Function added exactly once.");
+
+    </script>
+
+</body>
+
+</html>

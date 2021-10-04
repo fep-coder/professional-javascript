@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        const fruitMap = new Map(); 
+
+        const fruit1 = { name: "apples" };
+        const fruit2 = { name: "bananas" };
+        const fruit3 = { name: "oranges" };
+
+        fruitMap.set(fruit1, { color: "green" }); 
+        fruitMap.set(fruit2, { color: "yellow" }); 
+
+        assert(fruitMap.get(fruit1).color === "green", "The first mapping works");
+        assert(fruitMap.get(fruit2).color === "yellow", "The second mapping works");
+
+        assert(fruitMap.get(fruit3) === undefined, "There is no mapping for the third fruit!");
+
+        assert(fruitMap.size === 2, "We’ve created two mappings");
+
+        assert(fruitMap.has(fruit1) && fruitMap.has(fruit2), "We have mappings for the first two fruits");
+        assert(!fruitMap.has(fruit3), "But not for the third fruit!");
+
+        fruitMap.delete(fruit1);
+        assert(!fruitMap.has(fruit1) && fruitMap.size === 1, "There’s no first fruit anymore!");
+
+        fruitMap.clear();
+        assert(fruitMap.size === 0, "All mappings have been cleared");
+
+    </script>
+
+</body>
+
+</html>

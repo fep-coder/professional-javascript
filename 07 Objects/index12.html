@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        class Animal {
+            constructor(name) {
+                this.name = name;
+            }
+
+            sleep() {
+                return true;
+            }
+        }
+
+        class Dog extends Animal {
+            constructor(name, action) {
+                super(name);
+                this.action = action;
+            }
+
+            bark() {
+                return true;
+            }
+        }
+
+        const animal = new Animal("Oska");
+        assert(animal instanceof Animal, "An animal is an animal");
+        assert(animal.sleep(), "An animal can sleep.");
+        assert(animal.name === "Oska", "We can call it by name.");
+        assert(!(animal instanceof Dog), "But it's not a Dog");
+        assert(!("bark" in animal), "And it cannot bark");
+
+        separate();
+
+        const dog = new Dog("Loki", "runs");
+        assert(dog instanceof Dog, "A dog's a dog");
+        assert(dog.bark(), "That can bark");
+        assert(dog instanceof Animal, "But it's also an animal");
+        assert(dog.name === "Loki", "That has a name");
+        assert(dog.sleep(), "And enjoys sleeping");
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        function eat(food, foodType) {
+            foodType = typeof foodType === "undefined" ? "pork" : foodType;
+            return `${food}: ${foodType}`;
+        }
+
+        assert(eat("meat") === "meat: pork", "Meat is pork");
+        assert(eat("fruit", "apples") === "fruit: apples", "Fruit is apples");
+
+        separate();
+
+        function eat2(food, foodType = "pork") {
+            return `${food}: ${foodType}`;
+        }
+
+        assert(eat2("meat") === "meat: pork", "Meat is pork");
+        assert(eat2("fruit", "apples") === "fruit: apples", "Fruit is apples");
+
+        separate();
+
+        function eat3(food, foodType = "pork", message = `${food}: ${foodType}`) {
+            return message;
+        }
+        assert(eat3("meat") === "meat: pork", "Meat is pork");
+        assert(eat3("fruit", "apples") === "fruit: apples", "Fruit is apples");
+
+    </script>
+
+</body>
+
+</html>

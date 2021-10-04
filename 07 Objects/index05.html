@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        function Fruit() { }
+        const fruit = new Fruit();
+
+        assert(typeof fruit === "object", "The type of the instance is object.");
+
+        assert(fruit instanceof Fruit, "instanceof identifies the constructor.");
+
+        assert(
+            fruit.constructor === Fruit,
+            "The fruit object was created by the Fruit function."
+        );
+
+        separate();
+
+        const fruit2 = new fruit.constructor();
+        assert(fruit2 instanceof Fruit, "It's a Fruit!");
+        assert(fruit !== fruit2, "But not the same Fruit!");
+
+    </script>
+
+</body>
+
+</html>

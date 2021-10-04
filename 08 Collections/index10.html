@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        const fruits = ["apples", "oranges", "grapes", "oranges"];
+
+        assert(fruits.indexOf("oranges") === 1, "oranges is at index 1");
+        assert(fruits.lastIndexOf("oranges") === 3, "and at index 3");
+
+        const orangesIndex = fruits.findIndex((fruit) => fruit === "oranges");
+        assert(orangesIndex === 1, "oranges is still at index 1");
+
+    </script>
+
+</body>
+
+</html>

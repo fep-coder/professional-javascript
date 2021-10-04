@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        function CustomSet() {
+            this.data = {}; 
+            this.length = 0;
+        }
+
+        CustomSet.prototype.has = function (item) {
+            return typeof this.data[item] !== "undefined";
+        }
+
+        CustomSet.prototype.add = function (item) {
+            if (!this.has(item)) {
+                this.data[item] = true;
+                this.length++;
+            }
+        };
+
+        CustomSet.prototype.remove = function (item) {
+            if (this.has(item)) {
+                delete this.data[item];
+                this.length--;
+            }
+        }
+
+        const colors = new CustomSet();
+        colors.add("red");
+        colors.add("red");
+
+        assert(colors.has("red") && colors.length === 1, "Our set contains only one red");
+
+        colors.remove("red");
+        assert(!colors.has("red") && colors.length === 0, "Our set is now empty");
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        function whatsMyContext() {
+            return this;
+        }
+
+        assert(whatsMyContext() === window, "this is window");
+
+        const getThis = whatsMyContext;
+        assert(getThis() === window, "this is still window");
+
+        const fruit1 = {
+            getThis: whatsMyContext
+        };
+        assert(fruit1.getThis() === fruit1, "this is fruit1");
+
+        const fruit2 = {
+            getThis: whatsMyContext
+        };
+        assert(fruit2.getThis() === fruit2, "this is fruit2");
+
+    </script>
+
+</body>
+
+</html>

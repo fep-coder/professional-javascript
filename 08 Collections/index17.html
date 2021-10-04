@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        const fruits = new Set(["apples", "grapes", "oranges", "grapes"]);
+
+        assert(fruits.has("grapes"), "grapes are in our set");
+        assert(fruits.size === 3, "There are only three fruits in our set!");
+
+        assert(!fruits.has("bananas"), "bananas are not in, yet..");
+        fruits.add("bananas");
+        assert(fruits.has("bananas"), "bananas are added");
+        assert(fruits.size === 4, "There are four fruits in our set!");
+
+        assert(fruits.has("apples"), "apples are already added");
+        fruits.add("apples");
+        assert(fruits.size === 4, "Adding apples again has no effect");
+
+        for (let fruit of fruits) {
+            assert(fruit, fruit);
+        }
+
+    </script>
+
+</body>
+
+</html>

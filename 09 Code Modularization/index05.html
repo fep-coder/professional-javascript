@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Modularization</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script type="module">
+
+        import { greet as greet1 } from "./greeting2.js";
+        import { greet as greet2 } from "./greeting3.js";
+
+        assert(typeof greet === "undefined", "We cannot access greet");
+        assert(
+            greet1() === "Hello" &&
+            greet2() === "Hi there",
+            "We can access aliased identifiers!"
+        );
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        const fruit = { name: "apples" };
+
+        const representative = new Proxy(fruit, {
+            get: (target, key) => {
+                report("Reading " + key + " through a proxy");
+                return key in target ? target[key] : "invalid";
+            },
+            set: (target, key, value) => {
+                report("Writing " + key + " through a proxy");
+                target[key] = value;
+            },
+        });
+
+        assert(fruit.name === "apples", "The fruit is apples");
+        assert(representative.name === "apples", "We can get the name property through a proxy");
+
+        assert(fruit.price === undefined, "The fruit doesn’t have price property");
+        assert(representative.price === "invalid", "The proxy jumps in when we make invalid requests");
+
+        representative.price = 2;
+        assert(fruit.price === 2, "The fruit now has a price");
+        assert(representative.price === 2, "The price is also accessible through the proxy");
+
+
+    </script>
+
+</body>
+
+</html>

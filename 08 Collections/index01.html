@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        const fruits = ["apples", "oranges", "grapes"];
+        const animals = new Array("dog", "cat");
+
+        assert(fruits.length === 3, "There are three fruits");
+        assert(animals.length === 2, "And two animals");
+
+        assert(fruits[0] === "apples", "apples is the first fruit");
+        assert(animals[animals.length - 1] === "cat", "cat is the last animal");
+
+        assert(
+            fruits[4] === undefined,
+            "We get undefined if we try to access an out of bounds index"
+        );
+
+        fruits[4] = "watermelon";
+        assert(fruits.length === 5, "Arrays are automatically expanded");
+
+        fruits.length = 2;
+        assert(fruits.length === 2, "There are only two fruits now");
+        assert(fruits[0] === "apples" && fruits[1] === "oranges", "apples and oranges");
+        assert(fruits[2] === undefined, "But no grapes");
+
+    </script>
+
+</body>
+
+</html>

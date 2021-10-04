@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Debugging and performance analysis</title>
+</head>
+
+<body>
+
+	<script>
+
+ 		console.time();
+ 		for (var n = 0; n < 100000; n++) { }
+ 		console.timeEnd();
+
+ 		console.time("Second operation");
+ 		for (var n = 0; n < 1000000; n++) { }
+ 		console.timeEnd("Second operation");
+
+	</script>
+
+</body>
+
+</html>

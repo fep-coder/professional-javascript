@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        const names = [{ name: "Dean" }, { name: "Clair" }, { name: "Anna" }];
+
+        names.sort(function (name1, name2) {
+            if (name1.name < name2.name) {
+                return -1;
+            }
+            if (name1.name > name2.name) {
+                return 1;
+            }
+            return 0;
+        });
+
+        assert(names[0].name === "Anna", "Anna is first");
+        assert(names[1].name === "Clair", "Clair is second");
+        assert(names[2].name === "Dean", "Dean is third");
+
+    </script>
+
+</body>
+
+</html>

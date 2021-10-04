@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        const fruits = [];
+        assert(fruits.length === 0, "An array starts empty");
+
+        fruits.push("apples");
+        assert(fruits[0] === "apples", "apples is the first item in the array");
+        assert(fruits.length === 1, "We have one item in the array");
+
+        fruits.push("oranges");
+        assert(fruits[0] === "apples", "apples is still first");
+        assert(fruits[1] === "oranges", "oranges is added to the end of the array");
+        assert(fruits.length === 2, "We have two items in the array!");
+
+        fruits.unshift("grapes");
+        assert(fruits[0] === "grapes", "Now grapes is the first item");
+        assert(fruits[1] === "apples", "apples moved to the second place");
+        assert(fruits[2] === "oranges", "And oranges to the third place");
+        assert(fruits.length === 3, "We have three items in the array!");
+
+        const lastFruit = fruits.pop();
+        assert(lastFruit === "oranges", "We've removed oranges from the end of the array"
+        );
+        assert(fruits[0] === "grapes", "Now grapes is still the first item");
+        assert(fruits[1] === "apples", "apples is still on the second place");
+        assert(fruits.length === 2, "Now there are two items in the array");
+
+        const firstFruit = fruits.shift();
+        assert(firstFruit === "grapes", "We've removed grapes from the beginning of the array");
+        assert(fruits[0] === "apples", "apples has shifted to the first place");
+        assert(fruits.length === 1, "There's only one fruit in the array");
+
+    </script>
+
+</body>
+
+</html>

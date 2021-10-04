@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <button id="test">Click Me!</button>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        const button = {
+            clicked: false,
+            click: function () {
+                this.clicked = true;
+                assert(button.clicked, "The button has been clicked");
+            }
+        }
+
+        const elem = document.getElementById("test");
+        elem.addEventListener("click", button.click.bind(button));
+
+        const boundFunction = button.click.bind(button);
+        assert(
+            boundFunction != button.click,
+            "Calling bind creates a completely new function"
+        );
+
+    </script>
+
+</body>
+
+</html>

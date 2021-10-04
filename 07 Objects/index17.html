@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        function Game() {
+            let _level = 0;
+
+            Object.defineProperty(this, "level", {
+                get: () => _level,
+                set: (value) => {
+                    if (!Number.isInteger(value)) {
+                        throw new TypeError("level should be a number");
+                    }
+                    _level = value;
+                },
+            });
+        }
+
+        const game = new Game();
+
+        game.level = 10;
+        assert(game.level === 10, "The value was updated");
+
+        try {
+            game.level = "high";
+            fail("Should not be here");
+        } catch (e) {
+            pass("Setting a non-integer value throws an exception");
+        }
+
+    </script>
+
+</body>
+
+</html>

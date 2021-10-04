@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        function createNegativeArrayProxy(array) {
+            if (!Array.isArray(array)) {
+                throw new TypeError("Expected an array");
+            }
+
+            return new Proxy(array, {
+                get: (target, index) => {
+                    index = +index;
+                    return target[index < 0 ? target.length + index : index];
+                },
+                set: (target, index, val) => {
+                    index = +index;
+                    return (target[index < 0 ? target.length + index : index] = val);
+                },
+            });
+        }
+
+        const fruits = ["apples", "oranges", "grapes"];
+        const proxiedFruits = createNegativeArrayProxy(fruits);
+
+        assert(
+            fruits[0] === "apples" && 
+            fruits[1] === "oranges" && 
+            fruits[2] === "grapes",
+            "Array items accessed through positive indexes"
+        );
+
+        assert(
+            proxiedFruits[0] === "apples" &&
+            proxiedFruits[1] === "oranges" &&
+            proxiedFruits[2] === "grapes",
+            "Array items accessed through positive indexes on a proxy"
+        );
+
+        assert(
+            typeof fruits[-1] === "undefined" &&
+            typeof fruits[-2] === "undefined" &&
+            typeof fruits[-3] === "undefined",
+            "Array Items cannot be accessed through negative indexes"
+        );
+
+        assert(
+            proxiedFruits[-1] === "grapes" &&
+            proxiedFruits[-2] === "oranges" &&
+            proxiedFruits[-3] === "apples",
+            "But they can with proxies"
+        );
+
+        proxiedFruits[-1] = "watermelon";
+        assert(
+            proxiedFruits[-1] === "watermelon" && fruits[2] === "watermelon",
+            "Items can be changed through negative indexes"
+        );
+
+    </script>
+
+</body>
+
+</html>

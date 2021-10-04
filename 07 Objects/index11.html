@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        class Fruit {
+            constructor(name, price) {
+                this.name = name;
+                this.price = price;
+            }
+
+            someMethod() {
+                return true;
+            }
+
+            static compare(fruit1, fruit2) {
+                return fruit1.price - fruit2.price;
+            }
+
+        }
+
+        const fruit1 = new Fruit("apples", 4);
+        const fruit2 = new Fruit("oranges", 3);
+
+        assert(
+            !("compare" in fruit1) && !("compare" in fruit2),
+            "A fruit instance doesn't know how to compare"
+        );
+        assert(
+            Fruit.compare(fruit1, fruit2) > 0,
+            "The Fruit class can do the comparison!"
+        );
+        assert(
+            !("someMethod" in Fruit),
+            "The Fruit class cannot access someMethod directly"
+        );
+
+    </script>
+
+</body>
+
+</html>

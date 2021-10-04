@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        const fruit = {};
+        fruit.name = "apples";
+        fruit.color = "green";
+
+        Object.defineProperty(fruit, "tasty", {
+            configurable: false,
+            enumerable: false,
+            value: true,
+            writable: true,
+        });
+        assert("tasty" in fruit, "We can access the new property");
+
+        for (let prop in fruit) {
+            assert(prop !== undefined, "An enumerated property: " + prop);
+        }
+
+    </script>
+
+</body>
+
+</html>

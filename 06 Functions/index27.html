@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        function Fruit() {
+
+            let apples = 0;
+
+            this.getApples = function () {
+                return apples;
+            };
+
+            this.addApples = function () {
+                apples++;
+            };
+        }
+
+        const fruit1 = new Fruit();
+
+        fruit1.addApples();
+
+        assert(
+            fruit1.apples === undefined,
+            "And the private data is inaccessible to us."
+        );
+        
+        assert(
+            fruit1.getApples() === 1,
+            "We're able to access the internal apple count."
+        );
+
+        const fruit2 = new Fruit();
+        assert(
+            fruit2.getApples() === 0,
+            "The second fruit object gets its own apples variable."
+        );
+
+        const imposter = {};
+        imposter.getApples = fruit1.getApples;
+        assert(
+            imposter.getApples() === 1,
+            "The imposter has access to the apples variable!"
+        );
+
+    </script>
+
+</body>
+
+</html>

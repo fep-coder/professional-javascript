@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        function sum() {
+            let result = 0;
+            for (let n = 0; n < arguments.length; n++) {
+                result += arguments[n];
+            }
+            this.result = result;
+        }
+
+        const obj1 = {};
+        const obj2 = {};
+
+        sum.apply(obj1, [1, 2, 3, 4]);
+        sum.call(obj2, 5, 6, 7, 8);
+
+        assert(obj1.result === 10, "summed via apply");
+        assert(obj2.result === 26, "summed via call");
+
+    </script>
+
+</body>
+
+</html>

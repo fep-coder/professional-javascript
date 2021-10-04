@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        function Animal() {
+            this.walk = function () {
+                return true;
+            };
+            return 1;
+        }
+
+        assert(
+            Animal() === 1,
+            "Return value honored when not called as a constructor"
+        );
+
+        const animal = new Animal();
+        assert(
+            typeof animal === "object",
+            "Object returned when called as a constructor"
+        );
+        assert(typeof animal.walk === "function", "animal object has a walk method");
+
+    </script>
+
+</body>
+
+</html>

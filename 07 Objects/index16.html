@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        function Game() {
+
+            let _level = 0;
+
+            Object.defineProperty(this, 'level', {
+
+                get: () => {
+                    report("The get method is called");
+                    return _level;
+                },
+                set: value => {
+                    report("The set method is called");
+                    _level = value;
+                }
+            });
+
+        }
+
+        const game = new Game();
+
+        assert(typeof game._level === "undefined", "We cannot access a 'private' property");
+        assert(game.level === 0, "The getter works fine!");
+
+        game.level = 10;
+        assert(game.level === 10, "The value was updated");
+
+    </script>
+
+</body>
+
+</html>

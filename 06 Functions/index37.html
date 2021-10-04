@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        const fruitPromise = new Promise((resolve, reject) => {
+            resolve("apples");
+            //reject("An error resolving a promise!");
+        });
+
+        fruitPromise.then(fruit => {
+            assert(fruit === "apples", "We got the apples we were promised!");
+        }, err => {
+            fail("There shouldn't be an error")
+        });
+
+    </script>
+
+</body>
+
+</html>

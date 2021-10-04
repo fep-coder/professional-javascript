@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        async function f() {
+            return 1;
+        }
+        f().then(result => assert(result === 1, "The result is 1"));
+
+        async function f2() {
+            return Promise.resolve(1);
+        }
+        f2().then(result => assert(result === 1, "The result is 1"));
+
+    </script>
+
+</body>
+
+</html>

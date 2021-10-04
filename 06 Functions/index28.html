@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <div id="box1" style="position: absolute; background: red; color: white;">First Box</div>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        function animateIt(elementId) {
+            const elem = document.getElementById(elementId); 
+            let tick = 0; 
+            const timer = setInterval(function () {
+                if (tick < 100) { 
+                    elem.style.left = elem.style.top = tick + "px";
+                    tick++;
+                }
+                else {
+                    clearInterval(timer); 
+                    assert(tick === 100, "Tick accessed via a closure.");
+                    assert(elem, "Element also accessed via a closure.");
+                    assert(timer, "Timer reference also obtained via a closure.");
+                }
+            }, 10);
+        }
+        animateIt("box1");
+
+    </script>
+
+</body>
+
+</html>

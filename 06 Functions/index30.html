@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        function* FruitGenerator() {
+            yield "apples";
+            yield "oranges";
+        }
+
+        const fruitIterator = FruitGenerator();
+
+        const result1 = fruitIterator.next();
+        assert(
+            typeof result1 === "object" && result1.value === "apples" && !result1.done,
+            "apples received!"
+        );
+
+        const result2 = fruitIterator.next();
+        assert(
+            typeof result2 === "object" && result2.value === "oranges" && !result2.done,
+            "oranges received!"
+        );
+
+        const result3 = fruitIterator.next();
+        assert(
+            typeof result3 === "object" && result3.value === undefined && result3.done,
+            "There are no more results!"
+        );
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        function isEvenNumber(value) {
+            report("Before checking cache");
+
+            if (!isEvenNumber.answers) {
+                isEvenNumber.answers = {};
+            }
+
+            if (isEvenNumber.answers[value] !== undefined) {
+                return isEvenNumber.answers[value];
+            }
+
+            report("After checking cache");
+
+            let evenNumber = value;
+
+            if (value % 2 !== 0) {
+                return false;
+            }
+
+            return (isEvenNumber.answers[value] = evenNumber);
+        }
+
+        assert(isEvenNumber(4), "4 is an even number!");
+        assert(!isEvenNumber(5), "5 is not an even number!");
+        assert(isEvenNumber.answers[4], "The answer was cached!");
+        assert(isEvenNumber(4), "4 is an even number!");
+
+    </script>
+
+</body>
+
+</html>

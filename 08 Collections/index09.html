@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        const persons = [
+            { name: "Bob", job: "builder", pet: "dog" },
+            { name: "John", job: "programmer" },
+            { name: "Mary", job: "manager", pet: "cat" },
+        ];
+
+        const personWithCatPet = persons.find((person) => {
+            return person.pet === "cat";
+        });
+
+        assert(personWithCatPet.name === "Mary" && personWithCatPet.pet === "cat", "Mary has a cat");
+
+        const personWithSnakePet = persons.find((person) => {
+            return persons.pet === "snake";
+        });
+
+        assert(personWithSnakePet === undefined, "There is no person with a snake for a pet");
+
+        const personsWithPets = persons.filter((person) => "pet" in person);
+
+        assert(
+            personsWithPets.length === 2 &&
+            personsWithPets[0].name === "Bob" &&
+            personsWithPets[1].name === "Mary",
+            "Two persons, Bob and Mary, have pets"
+        );
+
+    </script>
+
+</body>
+
+</html>

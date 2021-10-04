@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections</title>
+    <link rel="stylesheet" href="../helpers.css">
+</head>
+
+<body>
+
+    <script src="../helpers.js"></script>
+    <script>
+
+        const persons = [
+            { name: "Bob", job: "builder", pet: "dog" },
+            { name: "John", job: "programmer" },
+            { name: "Mary", job: "manager", pet: "cat" },
+        ];
+
+        const jobs = [];
+        persons.forEach((person) => {
+            jobs.push(person.job);
+        });
+
+        assert(
+            jobs[0] === "builder" &&
+            jobs[1] === "programmer" &&
+            jobs[2] === "manager" &&
+            jobs.length === 3,
+            "The new array contains all jobs"
+        );
+
+    </script>
+
+</body>
+
+</html>
